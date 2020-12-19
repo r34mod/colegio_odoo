@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        
+    <record model="ir.ui.view" id="view_colegio_prov_tree">
+        <field name="name">view.colegio.provedores.tree</field>
+        <field name="model">colegio.provedores</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="marca"/>
+              <field name="modelo"/>
+              <field name="cantidad"/>
+              <field name="prize"/>
+                <field name="equal"/>
+            </tree>
+        </field>
+    </record>
+
+        
+        <record model="ir.ui.view" id="view_colegio_prov_form">
+            <field name='name'>view.colegioo.prov.form</field>
+            <field name="model">colegio.provedores</field>
+            <field name="arch" type="xml">
+                <form string="provedores form" version="7.0">
+                 <group colspan="2" col="2">
+                        <field name="marca"/>
+                        <field name="modelo"/>
+                        <field name="cantidad"/>
+                         <field name="prize"/>
+                         <field name="equal"/>
+                 </group>
+                </form>
+            </field>
+        </record>
+</odoo>
