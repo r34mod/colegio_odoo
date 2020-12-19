@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oddo>
+
+     <menuitem id="menu_root_colegio"  name="Colegio" sequence="30" />
+
+        <menuitem id="menu_root_colegio__view"  name="Colegios" parent="menu_root_colegio"/>
+ 		<menuitem id="menu_root_colegio_profesores_view"  name="Profesores" parent="menu_root_colegio"/>
+        <menuitem id="menu_root_colegio_aulas_view"  name="Alumnos" parent="menu_root_colegio"/>
+
+    <record model="ir.actions.act_windows" id="listar_colegio_action">
+        <field name="name">Colegio</field>
+        <field name="red_model">colegio.colegio</field>
+        <field name="view_model">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_windows" id="listar_profesores_action">
+        <field name="name">Profesores</field>
+        <field name="red_model">colegio.profesores</field>
+        <field name="view_model">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_windows" id="listar_aulas_action">
+        <field name="name">Aulas</field>
+        <field name="red_model">colegio.aulas</field>
+        <field name="view_model">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="listar_provedores_action">
+                <field name="name">Provedores</field>
+                <field name="res_model">colegio.provedores</field>
+                <field name="view_mode">tree,form</field>
+	</record>
+   
+
+
+    <menuitem id="menu_root_colegio_listar_colegio"  name="Listar colegios" parent="menu_root_colegio_colegio_view" action="listar_colegio_action" />
+		<menuitem id="menu_root_colegio_listar_profesores"  name="Listar profesores" parent="menu_root_colegio_profesores_view" action="listar_profesores_action" />
+    <menuitem id="menu_root_colegio_listar_aulas"  name="Listar aulas" parent="menu_root_colegio_aulas_view" action="listar_aulas_action" />
+    <menuitem id="menu_root_colegio_provedores_view"  name="Provedores" parent="menu_root_colegio" action="listar_provedores_action" />
+
+
+    <record model="ir.ui.view" id="view_colegio_colegio_tree">
+        <field name="name">view.colegio.colegio.tree</field>
+        <field name="model">colegio.colegio</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="nombre"/>
+              <field name="id"/>
+              <field name="educacion"/>
+              <field name="materiales"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_colegio_profesores_tree">
+        <field name="name">view.colegio.profesores.tree</field>
+        <field name="model">colegio.profesores</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="nombreProfe"/>
+              <field name="apellido"/>
+              <field name="nacimiento"/>
+              <field name="edad"/>
+              <field name="director"/>
+              <field name="centro"/>
+              <field name="aula"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_colegio_aulas_tree">
+        <field name="name">view.colegio.aulas.tree</field>
+        <field name="model">colegio.aulas</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="idAula"/>
+              <field name="profesorNombre"/>
+              <field name="delegado"/>
+              <field name="bilingue"/>
+              
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_colegio_colegio_form">
+        <field name="name">view.colegio.colegio.form</field>
+        <field name="model">colegio.colegio</field>
+        <field name="arch" type="xml">
+            <form string="colegio form" version="7.0">
+                <sheet>
+                    <group colspan="2" col="2">
+                        <group>
+                            <field name="nombre">
+                            <field name="id">
+                            <field name="educacion">
+                            <field name="materiales">
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_colegio_profesores_form">
+        <field name="name">view.colegio.profesores.form</field>
+        <field name="model">colegio.profesores</field>
+        <field name="arch" type="xml">
+            <form string="profesores form" version="7.0">
+                <sheet>
+                    <group colspan="2" col="2">
+                        <group>
+                            <field name="nombreProfe">
+                            <field name="apellido">
+                             <field name="nacimiento">
+                              <field name="edad">
+                            <field name="director">
+                           
+                        </group>
+                        <group>
+                            <field name="centro">
+                            <field name="aula">
+                        </group> 
+                    </group>
+                </sheet>
+            </form>
+    </record>
+
+    <record model="ir.ui.view" id="view_colegio_aulas_form">
+        <field name="name">view.colegio.profesores.form</field>
+        <field name="model">colegio.profesores</field>
+        <field name="arch" type="xml">
+            <form string="profesores form" version="7.0">
+                <sheet>
+                    <group colspan="2" col="2">
+                        <group>
+                            <field name="idAula">
+                            <field name="profesorName">
+                            <field name="delegado">
+                            <field name="bilingue">
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </record>
+
+
+</odoo>
