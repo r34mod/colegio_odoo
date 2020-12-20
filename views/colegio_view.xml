@@ -5,7 +5,7 @@
 
         <menuitem id="menu_root_colegio__view"  name="Colegios" parent="menu_root_colegio"/>
  		<menuitem id="menu_root_colegio_profesores_view"  name="Profesores" parent="menu_root_colegio"/>
-        <menuitem id="menu_root_colegio_aulas_view"  name="Alumnos" parent="menu_root_colegio"/>
+        <menuitem id="menu_root_colegio_aulas_view"  name="Aulas" parent="menu_root_colegio"/>
 
     <record model="ir.actions.act_windows" id="listar_colegio_action">
         <field name="name">Colegio</field>
@@ -30,6 +30,13 @@
                 <field name="res_model">colegio.provedores</field>
                 <field name="view_mode">tree,form</field>
 	</record>
+
+
+    <record model="ir.actions.act_window" id="listar_alumnos_action">
+                <field name="name">Alumnos</field>
+                <field name="res_model">colegio.alumnos</field>
+                <field name="view_mode">tree,form</field>
+	</record>
    
 
 
@@ -37,6 +44,7 @@
 		<menuitem id="menu_root_colegio_listar_profesores"  name="Listar profesores" parent="menu_root_colegio_profesores_view" action="listar_profesores_action" />
     <menuitem id="menu_root_colegio_listar_aulas"  name="Listar aulas" parent="menu_root_colegio_aulas_view" action="listar_aulas_action" />
     <menuitem id="menu_root_colegio_provedores_view"  name="Provedores" parent="menu_root_colegio" action="listar_provedores_action" />
+    <menuitem id="menu_root_colegio_alumnos_view"  name="Alumnos" parent="menu_root_colegio" action="listar_alumnos_action" />
 
 
     <record model="ir.ui.view" id="view_colegio_colegio_tree">

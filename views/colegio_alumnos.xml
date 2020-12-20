@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        
+    <record model="ir.ui.view" id="view_colegio_alum_tree">
+        <field name="name">view.colegio.alumnos.tree</field>
+        <field name="model">colegio.alumnos</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="aula"/>
+              <field name="profesor"/>
+              <field name="nombreAlumno"/>
+              <field name="apellidoAlumno"/>
+            </tree>
+        </field>
+    </record>
+
+        
+        <record model="ir.ui.view" id="view_colegio_alum_form">
+            <field name='name'>view.colegioo.alumnos.form</field>
+            <field name="model">colegio.alumnos</field>
+            <field name="arch" type="xml">
+                <form string="alumnos form" version="7.0">
+                 <group colspan="2" col="2">
+                        <field name="aula"/>
+                        <field name="profesor"/>
+                        <field name="nombreAlumno"/>
+                         <field name="apellidoAlumno"/>
+                        
+                 </group>
+                </form>
+            </field>
+        </record>
+</odoo>
