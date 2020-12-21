@@ -1,4 +1,7 @@
-from odoo import api, fields, models, 
+# -*- coding: utf-8 -*-
+
+
+from odoo import api, fields, models, _
 import datetime
 
 class colegiocolegio(models.Model):
@@ -58,3 +61,11 @@ class colegioprovedores(models.Model):
     prize = fields.Float(string='prize', required=True)
     equal = fields.Float(string='equal', compute='_equal')
     
+
+class colegioalumnos(models.Model):
+        _name = 'colegio.alumnos'
+
+        aula = fields.One2one('colegio.aulas', 'Aula', required=True)
+        profesor = fields.One2one('colegio.profesores', 'Porfesor', required=True)
+        nombreAlumno = fields.Text('Nombre alumno', required=True)
+        apellidoAlumno = fields.Text('Apellido alumno')
