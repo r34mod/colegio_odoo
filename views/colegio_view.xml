@@ -3,7 +3,7 @@
 
      <menuitem id="menu_root_colegio"  name="Colegio" sequence="30" />
 
-        <menuitem id="menu_root_colegio__view"  name="Colegios" parent="menu_root_colegio"/>
+        <menuitem id="menu_root_colegio_view"  name="Colegios" parent="menu_root_colegio"/>
  		<menuitem id="menu_root_colegio_profesores_view"  name="Profesores" parent="menu_root_colegio"/>
         <menuitem id="menu_root_colegio_aulas_view"  name="Aulas" parent="menu_root_colegio"/>
 
