@@ -52,14 +52,14 @@ class colegioprovedores(models.Model):
         _name = 'colegio.provedores'
 
          @api.depends('cantidad', 'prize')
-    def _equal(self):
-        self.equal = self.cantidad *self.prize *(26/100)
-        
-    marca = fields.Text('Marca', required=True)
-    modelo = fields.Text('Modelo', required=True)
-    cantidad = fields.Float(string='Cantidad')
-    prize = fields.Float(string='prize', required=True)
-    equal = fields.Float(string='equal', compute='_equal')
+        def _equal(self):
+                self.equal = self.cantidad *self.prize *(26/100)
+                
+        marca = fields.Text('Marca', required=True)
+        modelo = fields.Text('Modelo', required=True)
+        cantidad = fields.Float(string='Cantidad')
+        prize = fields.Float(string='prize', required=True)
+        equal = fields.Float(string='equal', compute='_equal')
     
 
 class colegioalumnos(models.Model):
@@ -69,3 +69,4 @@ class colegioalumnos(models.Model):
         profesor = fields.One2one('colegio.profesores', 'Porfesor', required=True)
         nombreAlumno = fields.Text('Nombre alumno', required=True)
         apellidoAlumno = fields.Text('Apellido alumno')
+
