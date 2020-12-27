@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
 
-from odoo import api, fields, models, _
+from odoo import api, fields, models,tools, _
 import datetime
+
+##One2Many que puede haber muchos en un mismo sitio
+
+##Many2one eliges uno de muchos
 
 class colegiocolegio(models.Model):
         _name = 'colegio.colegio'
@@ -13,6 +17,8 @@ class colegiocolegio(models.Model):
             ('privada'),
             ('concertada')
         ])
+        aulaCentro = fields.One2many('colegio.aulas', 'idAula', 'Aula')
+        profesoresCentro = fields.One2many('colegio.profesores', 'nombreProfe', 'Profesor')
         materiales = fields.Many2one('colegio.materiales', 'Proveedor de Materiales', required=True)
 
 
@@ -31,8 +37,8 @@ class colegioprofesores(models.Model):
     nacimiento = fields.Date('Año nacimiento', required=True, default=fields.Date.context_today)
     edad = fields.Integer('Años', compute='_edad')
     director = fields.Boolean('Director')
-    centro = fields.One2one('colegio.colegio', 'Centro', required=True)
-    aula = fields.One2one('colegio.aulas', 'Aulas', required=True)
+    centro = fields.One2Many('colegio.colegio', 'nombre', 'Centro', required=True)
+    aula = fields.Many2one('colegio.aulas', 'Aulas', required=True)
 
 
 
@@ -41,8 +47,8 @@ class colegioaulas(models.Model):
         _name = 'colegio.aulas'
 
         idAula = fields.Text('Aula', required=True)
-        profesorAula = fields.One2one('colegio.profesores', 'Profesor', required=True)
-        delegado = fields.One2one('colegio.alumnos', 'Delegado', required=True)
+        profesorAula = fields.Many2one('colegio.profesores', 'Profesor', required=True)
+        delegado = fields.Many2one('colegio.alumnos', 'Delegado', required=True)
         bilingue = fields.Boolean('Bilingue')
 
 
@@ -51,7 +57,7 @@ class colegioaulas(models.Model):
 class colegioprovedores(models.Model):
         _name = 'colegio.provedores'
 
-         @api.depends('cantidad', 'prize')
+        @api.depends('cantidad', 'prize')
         def _equal(self):
                 self.equal = self.cantidad *self.prize *(26/100)
                 
@@ -62,11 +68,5 @@ class colegioprovedores(models.Model):
         equal = fields.Float(string='equal', compute='_equal')
     
 
-class colegioalumnos(models.Model):
-        _name = 'colegio.alumnos'
 
-        aula = fields.One2one('colegio.aulas', 'Aula', required=True)
-        profesor = fields.One2one('colegio.profesores', 'Porfesor', required=True)
-        nombreAlumno = fields.Text('Nombre alumno', required=True)
-        apellidoAlumno = fields.Text('Apellido alumno')
 
