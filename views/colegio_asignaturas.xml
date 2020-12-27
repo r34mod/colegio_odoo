@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        
+    <record model="ir.ui.view" id="view_colegio_asig_tree">
+        <field name="name">view.colegio.asignaturas.tree</field>
+        <field name="model">colegio.asignaturas</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="nombreAsig"/>
+              <field name="idAsig"/>
+              <field name="obligatoria"/>
+              <field name="profesorAsig"/>
+              
+            </tree>
+        </field>
+    </record>
+
+        
+        <record model="ir.ui.view" id="view_colegio_asig_form">
+            <field name='name'>view.colegioo.asignaturas.form</field>
+            <field name="model">colegio.asignaturas</field>
+            <field name="arch" type="xml">
+                <form string="asignaturas form" version="7.0">
+                 <group colspan="2" col="2">
+                        <field name="nombreAsig"/>
+                        <field name="idAsig"/>
+                        <field name="obligatoria"/>
+                        <field name="profesorAsig"/>
+                         
+                 </group>
+                </form>
+            </field>
+        </record>
+</odoo>
