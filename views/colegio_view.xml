@@ -3,7 +3,7 @@
 
      <menuitem id="menu_root_colegio"  name="Colegio" sequence="30" />
 
-        <menuitem id="menu_root_colegio_view"  name="Colegios" parent="menu_root_colegio"/>
+        <menuitem id="menu_root_colegio_colegio_view"  name="Colegios" parent="menu_root_colegio"/>
  		<menuitem id="menu_root_colegio_profesores_view"  name="Profesores" parent="menu_root_colegio"/>
         <menuitem id="menu_root_colegio_aulas_view"  name="Aulas" parent="menu_root_colegio"/>
 
@@ -41,7 +41,7 @@
 
 
     <menuitem id="menu_root_colegio_listar_colegio"  name="Listar colegios" parent="menu_root_colegio_colegio_view" action="listar_colegio_action" />
-		<menuitem id="menu_root_colegio_listar_profesores"  name="Listar profesores" parent="menu_root_colegio_profesores_view" action="listar_profesores_action" />
+	<menuitem id="menu_root_colegio_listar_profesores"  name="Listar profesores" parent="menu_root_colegio_profesores_view" action="listar_profesores_action" />
     <menuitem id="menu_root_colegio_listar_aulas"  name="Listar aulas" parent="menu_root_colegio_aulas_view" action="listar_aulas_action" />
     <menuitem id="menu_root_colegio_provedores_view"  name="Provedores" parent="menu_root_colegio" action="listar_provedores_action" />
     <menuitem id="menu_root_colegio_alumnos_view"  name="Alumnos" parent="menu_root_colegio" action="listar_alumnos_action" />
@@ -53,9 +53,12 @@
         <field name="arch" type="xml">
             <tree string="Idea list">
               <field name="nombre"/>
-              <field name="id"/>
+              <field name="idCentro"/>
               <field name="educacion"/>
+              <field name="aulaCentro"/>
+              <field name="profesoresCentro"/>
               <field name="materiales"/>
+              
             </tree>
         </field>
     </record>
@@ -102,8 +105,10 @@
                     <group colspan="2" col="2">
                         <group>
                             <field name="nombre">
-                            <field name="id">
+                            <field name="idCentro">
                             <field name="educacion">
+                            <field name="aulaCentro"/>
+                            <field name="profesoresCentro"/>
                             <field name="materiales">
                         </group>
                     </group>
