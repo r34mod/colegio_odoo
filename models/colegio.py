@@ -11,7 +11,7 @@ import datetime
 class colegiocolegio(models.Model):
         _name = 'colegio.colegio'
         nombre = fields.Text('Nombre del centro', required=True)
-        id = fields.Char('Identificador' , required=True)
+        idCentro = fields.Char('Identificador' , required=True)
         educacion= fields.Selection([
             ('publica'),
             ('privada'),
