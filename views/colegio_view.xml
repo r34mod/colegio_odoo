@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<oddo>
+<odoo>
 
-     <menuitem id="menu_root_colegio"  name="Colegio" sequence="30" />
+     <menuitem id="menu_root_colegio"  name="Centros" sequence="30" />
 
-        <menuitem id="menu_root_colegio_colegio_view"  name="Colegios" parent="menu_root_colegio"/>
+        <menuitem id="menu_root_colegio_colegios_view"  name="Colegios" parent="menu_root_colegio"/>
  		<menuitem id="menu_root_colegio_profesores_view"  name="Profesores" parent="menu_root_colegio"/>
         <menuitem id="menu_root_colegio_aulas_view"  name="Aulas" parent="menu_root_colegio"/>
 
-    <record model="ir.actions.act_windows" id="listar_colegio_action">
-        <field name="name">Colegio</field>
-        <field name="red_model">colegio.colegio</field>
+    <record model="ir.actions.act_windows" id="listar_colegios_action">
+        <field name="name">Colegios</field>
+        <field name="res_model">colegio.colegios</field>
         <field name="view_model">tree,form</field>
     </record>
 
     <record model="ir.actions.act_windows" id="listar_profesores_action">
         <field name="name">Profesores</field>
-        <field name="red_model">colegio.profesores</field>
+        <field name="res_model">colegio.profesores</field>
         <field name="view_model">tree,form</field>
     </record>
 
     <record model="ir.actions.act_windows" id="listar_aulas_action">
         <field name="name">Aulas</field>
-        <field name="red_model">colegio.aulas</field>
+        <field name="res_model">colegio.aulas</field>
         <field name="view_model">tree,form</field>
     </record>
 
@@ -37,19 +37,33 @@
                 <field name="res_model">colegio.alumnos</field>
                 <field name="view_mode">tree,form</field>
 	</record>
+
+	<record model="ir.actions.act_windows" id="listar_asignaturas_action">
+		<field name="name">Asignaturas</field>
+		<field name="res_moodel">colegio.asignaturas</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<record model="ir.actions.act_windows" id="listar_materiales_action">
+		<field name="name">Materiales</field>
+		<field name="res_moodel">colegio.materiales</field>
+		<field name="view_mode">tree,form</field>
+	</record>
    
 
 
-    <menuitem id="menu_root_colegio_listar_colegio"  name="Listar colegios" parent="menu_root_colegio_colegio_view" action="listar_colegio_action" />
+    <menuitem id="menu_root_colegio_listar_colegios"  name="Listar colegios" parent="menu_root_colegio_colegios_view" action="listar_colegios_action" />
 	<menuitem id="menu_root_colegio_listar_profesores"  name="Listar profesores" parent="menu_root_colegio_profesores_view" action="listar_profesores_action" />
     <menuitem id="menu_root_colegio_listar_aulas"  name="Listar aulas" parent="menu_root_colegio_aulas_view" action="listar_aulas_action" />
     <menuitem id="menu_root_colegio_provedores_view"  name="Provedores" parent="menu_root_colegio" action="listar_provedores_action" />
     <menuitem id="menu_root_colegio_alumnos_view"  name="Alumnos" parent="menu_root_colegio" action="listar_alumnos_action" />
+    <menuitem id="menu_root_colegio_asignaturas_view"  name="Asignaturas" parent="menu_root_colegio" action="listar_asignaturas_action" />
+    <menuitem id="menu_root_colegio_materiales_view"  name="Materiales" parent="menu_root_colegio" action="listar_materiales_action" />
 
 
-    <record model="ir.ui.view" id="view_colegio_colegio_tree">
-        <field name="name">view.colegio.colegio.tree</field>
-        <field name="model">colegio.colegio</field>
+    <record model="ir.ui.view" id="view_colegio_colegios_tree">
+        <field name="name">view.colegio.colegios.tree</field>
+        <field name="model">colegio.colegios</field>
         <field name="arch" type="xml">
             <tree string="Idea list">
               <field name="nombre"/>
@@ -96,24 +110,25 @@
     </record>
 
 
-    <record model="ir.ui.view" id="view_colegio_colegio_form">
-        <field name="name">view.colegio.colegio.form</field>
-        <field name="model">colegio.colegio</field>
+    <record model="ir.ui.view" id="view_colegio_colegios_form">
+        <field name="name">view.colegio.colegios.form</field>
+        <field name="model">colegio.colegios</field>
         <field name="arch" type="xml">
             <form string="colegio form" version="7.0">
                 <sheet>
                     <group colspan="2" col="2">
                         <group>
-                            <field name="nombre">
-                            <field name="idCentro">
-                            <field name="educacion">
+                            <field name="nombre"/>
+                            <field name="idCentro"/>
+                            <field name="educacion"/>
                             <field name="aulaCentro"/>
                             <field name="profesoresCentro"/>
-                            <field name="materiales">
+                            <field name="materiales"/>
                         </group>
                     </group>
                 </sheet>
             </form>
+        </field>
     </record>
 
 
@@ -125,20 +140,21 @@
                 <sheet>
                     <group colspan="2" col="2">
                         <group>
-                            <field name="nombreProfe">
-                            <field name="apellido">
-                             <field name="nacimiento">
-                              <field name="edad">
-                            <field name="director">
+                            <field name="nombreProfe"/>
+                            <field name="apellido"/>
+                             <field name="nacimiento"/>
+                              <field name="edad"/>
+                            <field name="director"/>
                            
                         </group>
                         <group>
-                            <field name="centro">
-                            <field name="aula">
+                            <field name="centro"/>
+                            <field name="aula"/>
                         </group> 
                     </group>
                 </sheet>
             </form>
+        </field>
     </record>
 
     <record model="ir.ui.view" id="view_colegio_aulas_form">
@@ -149,14 +165,15 @@
                 <sheet>
                     <group colspan="2" col="2">
                         <group>
-                            <field name="idAula">
-                            <field name="profesorName">
-                            <field name="delegado">
-                            <field name="bilingue">
+                            <field name="idAula"/>
+                            <field name="profesorName"/>
+                            <field name="delegado"/>
+                            <field name="bilingue"/>
                         </group>
                     </group>
                 </sheet>
             </form>
+          </field>
         </record>
 
 
