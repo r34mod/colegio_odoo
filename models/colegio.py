@@ -9,7 +9,7 @@ import datetime
 ##Many2one eliges uno de muchos
 
 class colegiocolegio(models.Model):
-        _name = 'colegio.colegio'
+        _name = 'colegio.colegios'
         nombre = fields.Text('Nombre del centro', required=True)
         idCentro = fields.Char('Identificador' , required=True)
         educacion= fields.Selection([
@@ -17,7 +17,7 @@ class colegiocolegio(models.Model):
             ('privada'),
             ('concertada')
         ])
-        aulaCentro = fields.One2many('colegio.aulas', 'idAula', 'Aula')
+        aulaCentro = fields.One2many('colegio.aulas', 'idAulas', 'Aula')
         profesoresCentro = fields.One2many('colegio.profesores', 'nombreProfe', 'Profesor')
         materiales = fields.Many2one('colegio.materiales', 'Proveedor de Materiales', required=True)
 
@@ -37,8 +37,8 @@ class colegioprofesores(models.Model):
     nacimiento = fields.Date('Año nacimiento', required=True, default=fields.Date.context_today)
     edad = fields.Integer('Años', compute='_edad')
     director = fields.Boolean('Director')
-    centro = fields.One2Many('colegio.colegio', 'nombre', 'Centro', required=True)
-    aula = fields.Many2one('colegio.aulas', 'Aulas', required=True)
+    centro = fields.Many2one('colegio.colegios','Centro', required=True)
+    aula = fields.Many2one('colegio.aulas', 'idAulas', required=True)
 
 
 

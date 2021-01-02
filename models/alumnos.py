@@ -13,7 +13,7 @@ class colegioalumnos(models.Model):
         def _calc_alumno_edad(self):
            self.edadAlumno=datetime.date.today().year - self.nacimientoAlumno.year
 
-        aula = fields.Many2one('idAulas', 'colegio.aulas', string='Aula')
+        aula = fields.Many2one('colegio.aulas', 'idAulas', requiered=True)
         profesor = fields.Many2one('colegio.profesores', 'nombreProfe', required=True)
         nombreAlumno = fields.Text('Nombre alumno', required=True)
         apellidoAlumno = fields.Text('Apellido alumno', required=True)
